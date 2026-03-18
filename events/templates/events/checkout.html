@@ -1,0 +1,26 @@
+{% extends 'events/base.html' %}
+{% block content %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"
+        data-key="{{ razorpay_key }}"
+        data-amount="{{ amount }}"
+        data-currency="INR"
+        data-order_id="{{ order_id }}"
+        data-buttontext="Pay Now"
+        data-name="Festiva Creatives"
+        data-description="Event Theme Booking"
+        data-prefill.name="{{ request.user.username }}"
+        data-prefill.email="{{ request.user.email }}"
+        data-theme.color="#3399cc">
+</script>
+
+<h2 class="text-center mb-4">Checkout</h2>
+<form method="post" class="card p-4 shadow-sm">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="address" class="form-label">Delivery Address</label>
+        <textarea name="address" id="address" class="form-control" rows="3" required></textarea>
+    </div>
+    <h4>Total: ₹{{ total }}</h4>
+    <button type="submit" class="btn btn-success w-100">Pay & Confirm</button>
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'events/base.html' %}
+{% block content %}
+<h2 class="text-center mb-4">My Orders</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Total Price</th>
+            <th>Address</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.created_at }}</td>
+            <td>₹{{ order.total_price }}</td>
+            <td>{{ order.address }}</td>
+            <td>{{ order.status }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4" class="text-center">No orders yet.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
