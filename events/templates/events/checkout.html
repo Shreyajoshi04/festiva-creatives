@@ -1,5 +1,6 @@
 {% extends 'events/base.html' %}
 {% block content %}
+<<<<<<< HEAD
 <script src="https://checkout.razorpay.com/v1/checkout.js"
         data-key="{{ razorpay_key }}"
         data-amount="{{ amount }}"
@@ -13,6 +14,8 @@
         data-theme.color="#3399cc">
 </script>
 
+=======
+>>>>>>> f7b8409 (Initial commit with cart functionality)
 <h2 class="text-center mb-4">Checkout</h2>
 <form method="post" class="card p-4 shadow-sm">
     {% csrf_token %}
@@ -20,7 +23,22 @@
         <label for="address" class="form-label">Delivery Address</label>
         <textarea name="address" id="address" class="form-control" rows="3" required></textarea>
     </div>
+<<<<<<< HEAD
     <h4>Total: ₹{{ total }}</h4>
     <button type="submit" class="btn btn-success w-100">Pay & Confirm</button>
+=======
+
+    <div class="mb-3">
+        <label for="payment_method" class="form-label">Payment Method</label>
+        <select name="payment_method" id="payment_method" class="form-select" required>
+            <option value="COD">Cash on Delivery</option>
+            <option value="UPI">UPI</option>
+            <option value="Card">Credit/Debit Card</option>
+        </select>
+    </div>
+
+    <h4>Total: ₹{{ total }}</h4>
+    <button type="submit" class="btn btn-success w-100">Confirm Order</button>
+>>>>>>> f7b8409 (Initial commit with cart functionality)
 </form>
 {% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'custom_admin/base_admin.html' %}
+{% block content %}
+<div class="mb-4">
+    <h2><i class="bi bi-chat-left-text"></i> Customer Feedback</h2>
+</div>
+<div class="card">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Customer</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fb in feedbacks %}
+                <tr>
+                    <td>{{ fb.created_at|date:"M d, Y" }}</td>
+                    <td class="fw-bold">{{ fb.user.username }}</td>
+                    <td>{{ fb.message }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="3" class="text-center py-4">No feedback received yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

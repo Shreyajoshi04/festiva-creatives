@@ -18,10 +18,19 @@ from django.contrib import admin
 from django.urls import path, include   # ✅ include imported
 from django.conf import settings
 from django.conf.urls.static import static
+<<<<<<< HEAD
+=======
+from events.admin import festiva_admin
+
+>>>>>>> f7b8409 (Initial commit with cart functionality)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('events.urls')),
+<<<<<<< HEAD
+=======
+    path('custom-admin/', include('custom_admin.urls')),
+>>>>>>> f7b8409 (Initial commit with cart functionality)
 ]
 
 if settings.DEBUG:

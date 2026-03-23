@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'events',
+<<<<<<< HEAD
+=======
+    'custom_admin',
+>>>>>>> f7b8409 (Initial commit with cart functionality)
 ]
 
 MIDDLEWARE = [
@@ -55,7 +59,11 @@ ROOT_URLCONF = 'festiva_creatives.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [],
+=======
+        'DIRS': [BASE_DIR / "templates"],
+>>>>>>> f7b8409 (Initial commit with cart functionality)
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +134,14 @@ import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+<<<<<<< HEAD
+=======
+
+RAZORPAY_KEY_ID = "your_key_id"
+RAZORPAY_KEY_SECRET = "your_key_secret"
+
+LOGIN_URL = '/login/'
+
+
+
+>>>>>>> f7b8409 (Initial commit with cart functionality)
