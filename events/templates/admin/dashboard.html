@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Admin Dashboard</h1>
+
+<div class="row g-4">
+  <div class="col-md-4">
+    <div class="card text-center shadow">
+      <div class="card-body">
+        <h5 class="card-title">Total Orders</h5>
+        <p class="card-text display-6">{{ total_orders }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center shadow">
+      <div class="card-body">
+        <h5 class="card-title">Pending Orders</h5>
+        <p class="card-text display-6">{{ pending_orders }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center shadow">
+      <div class="card-body">
+        <h5 class="card-title">Completed Orders</h5>
+        <p class="card-text display-6">{{ completed_orders }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mt-3">
+  <div class="col-md-4">
+    <div class="card text-center shadow">
+      <div class="card-body">
+        <h5 class="card-title">Revenue</h5>
+        <p class="card-text display-6">₹{{ total_revenue }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center shadow">
+      <div class="card-body">
+        <h5 class="card-title">Feedback Count</h5>
+        <p class="card-text display-6">{{ feedback_count }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center shadow">
+      <div class="card-body">
+        <h5 class="card-title">Customers</h5>
+        <p class="card-text display-6">{{ user_count }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

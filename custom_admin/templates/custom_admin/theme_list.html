@@ -1,0 +1,39 @@
+{% extends 'custom_admin/base_admin.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-images"></i> Event Themes</h2>
+    <a href="{% url 'custom_admin:theme_add' %}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Add New Theme</a>
+</div>
+<div class="card">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Caste Preference</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for theme in themes %}
+                <tr>
+                    <td>
+                        {% if theme.image %}
+                            <img src="{{ theme.image.url }}" alt="{{ theme.name }}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;">
+                        {% endif %}
+                    </td>
+                    <td class="fw-bold align-middle">{{ theme.name }}</td>
+                    <td class="align-middle"><span class="badge bg-secondary">{{ theme.category.name }}</span></td>
+                    <td class="align-middle">{{ theme.caste_preference|default:"None" }}</td>
+                    <td class="align-middle text-success fw-bold">₹{{ theme.price }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="5" class="text-center py-4">No themes found.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
